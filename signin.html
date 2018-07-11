@@ -43,7 +43,6 @@
   </style>
 </head>
 <title>메인</title>
-
 <body>
   <script>
   function gohome(){
@@ -94,7 +93,46 @@
           <input type="submit" onclick="submit()" value="제출">
         </fieldset>
 
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script>
+      <script>
+        function getaddr() {
+          daum.postcode.load(function() {
+            new daum.Postcode({
+              oncomplete: function(data) {
+                alert("1");
+                var fullAddr = '';
+                var extraAddr = '';
 
+                if (data.userSelectedType === 'R') {
+
+                  fullAddr = data.roadAddress;
+                  if (data.bname !== '') {
+                    extraAddr += data.bname;
+                  }
+
+                  if (data.buildingName !== '') {
+                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                  }
+
+                  fullAddr += (extraAddr !== '' ? ' (' + extraAddr + ')' : '');
+                } else {
+                  fullAddr = data.jibunAddress;
+                }
+                document.getElementById('code').innerHTML = data.zonecode;
+                document.getElementById('add1').innerHTML = fullAddr;
+                document.getElementById('add2').focus();
+
+              }
+            }).open();
+          });
+        }
+      </script>
+      <script>
+        function submit() {
+          var message = document.getElementById("id").value;
+            alert( message );
+        }
+      </script>
     </article>
   </section>
   <footer>
