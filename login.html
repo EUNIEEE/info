@@ -45,12 +45,21 @@
 <title>메인</title>
 
 <body>
-
+  <script>
+    function goPage() {
+      location.href = "signin.html";
+    }
+  </script>
+  <script>
+    function goHome() {
+      location.href = "home.html";
+    }
+  </script>
   <header>
-    <input type="button" value="회원가입" name="join" id="join" style="position: relative; left:670px; right:80px;
+    <input type="button" value="회원가입" name="join" id="join" style="position: relative; left:670px; right:110px;
       background-color:white; border-color:white; border-radius: 6px; font-family: 'NanumSquare'; font-size:15px;" onclick="goPage()";>
-    <input type="button" value="로그인" name="login" id="login" style="position: relative; left:670px; right:110px;
-      background-color:white; border-color:white; border-radius: 6px; font-family: 'NanumSquare'; font-size:15px;" onclick="goLogin()";>
+    <input type="button" value="홈으로" name="login" id="login" style="position: relative; left:670px; right:80px;
+      background-color:white; border-color:white; border-radius: 6px; font-family: 'NanumSquare'; font-size:15px;" onclick="goHome()";>
 
   </header>
   <nav id="nav">
